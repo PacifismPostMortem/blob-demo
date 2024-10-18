@@ -1,33 +1,45 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Blob Storage Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-          integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"/>
-  </head>
-  <body class="pure-g">
-   <div>
-       <h1>Server location set to central India</h1>
-       <img src="https://csci5117antipode.blob.core.windows.net/post-images/india.jpg" alt="India" width="400px;"/>
-
-
-       <h1>Server location set to central US</h1>
-       <img src="https://csci5117.blob.core.windows.net/post-images/india.jpg" alt="India" width="400px;"/>
-   </div>
-
-    <div class="pure-u-1-3"></div>
-    <div>
-      <h1 class="">Upload files to blob storage:</h1>
-      <!-- IMPORTANT: enctype = multipart/form-data -->
-      <form method="post" action="/upload_example" enctype="multipart/form-data" class="pure-u-1-2 pure-form pure-form-stacked">
-        <fieldset style="">
-            <input type="file" name="photos" multiple class="">
-            <input type="submit" class="pure-button">
-        </fieldset>
-      </form>
-    </div>
-    <div class="pure-u-1-3"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Blob Storage Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css"/>
+  <style>
+      .links-container {
+          padding-top: 10px;
+          text-align: right;
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          justify-content: end;
+      }
+  </style>
+</head>
+<body class="pure-g">
+<div class="pure-u-1-3"></div>
+<div>
+  <div class="links-container">
+    <a href="/latency">
+      Latency example
+    </a>
+    <a href="/uploads_view">
+      View uploads &rarr;
+    </a>
+  </div>
+  <h1 class="">Upload files to blob storage:</h1>
+  <!-- IMPORTANT: enctype = multipart/form-data -->
+  <form method="post" action="/" enctype="multipart/form-data" class="pure-u-1-2 pure-form pure-form-stacked">
+    <fieldset style="">
+      <div class="choose-file-container">
+        <input type="file" name="photos" multiple class="">
+      </div>
+      <input type="submit" class="pure-button">
+    </fieldset>
+  </form>
+</div>
+<div class="pure-u-1-3"></div>
+</body>
 </html>

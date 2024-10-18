@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Uploaded files</title>
+  <style>
+      .main-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+      }
+  </style>
+</head>
+<body>
+<a href="/">
+  &larr; Back
+</a>
+<h1>
+  Uploaded files
+</h1>
+<div class="main-container">
+  {% for b in blobs %}
+    <img src="{{ b }}" alt="{{ b }}" width="400px;"/>
+  {% endfor %}
+</div>
+</body>
+</html>

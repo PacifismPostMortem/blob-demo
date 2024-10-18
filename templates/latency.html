@@ -1,0 +1,70 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Latency Example</title>-->
+<!--  <style>-->
+<!--      .main-container {-->
+<!--          display: flex;-->
+<!--          flex-wrap: wrap;-->
+<!--          gap: 12px;-->
+<!--          margin-top: 10px;-->
+<!--      }-->
+
+<!--      figure {-->
+<!--          border: solid 1px gray;-->
+<!--          border-radius: 4px;-->
+<!--          padding: 12px;-->
+<!--          margin: 0;-->
+<!--      }-->
+
+<!--      figcaption {-->
+<!--          text-align: center;-->
+<!--          font-size: 20px;-->
+<!--      }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<a href="/">-->
+<!--  &larr; Back-->
+<!--</a>-->
+<!--<div class="main-container">-->
+<!--  <figure>-->
+<!--    <img src="https://csci5117antipode.blob.core.windows.net/post-images/india.jpg" alt="India" width="400px;"/>-->
+<!--    <figcaption>Server location set to central India</figcaption>-->
+<!--  </figure>-->
+<!--  <figure>-->
+<!--    <img src="https://csci5117.blob.core.windows.net/post-images/india.jpg" alt="India" width="400px;"/>-->
+<!--    <figcaption>Server location set to central US</figcaption>-->
+<!--  </figure>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latency Demo</title>
+</head>
+<body>
+    <h1>Latency Comparison for Storage Accounts</h1>
+
+    <table border="1">
+        <tr>
+            <th>Location</th>
+            <th>Image</th>
+            <th>Latency (Seconds)</th>
+        </tr>
+        {% for location, url in storage_accounts.items() %}
+        <tr>
+            <td>{{ location }}</td>
+            <td><img src="{{ url }}" alt="{{ location }}" width="400px"></td>
+            <td>{{ latencies[location] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

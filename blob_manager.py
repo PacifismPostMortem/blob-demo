@@ -4,7 +4,7 @@ import uuid
 from azure.storage.blob import BlobServiceClient
 
 connection_string = os.environ.get('BLOB_CONNECTION_STRING')
-blob_container_name = os.environ.get('BLOB_CONTAINER_NAME')
+blob_container_name = os.environ.get('CONTAINER_NAME')
 blob_service_client = None
 
 
@@ -33,6 +33,21 @@ def upload_blob(file):
     except Exception as e:
         print(e)
     return None
+
+
+def list_blobs():
+    """ :returns: A list of all the blob urls in the container
+        :rtype: list
+    Lists all the blobs in the container."""
+    global blob_service_client
+
+    container_client = blob_service_client.get_container_client(blob_container_name)
+    blobs = container_client.list_blobs()
+    blob_urls = []
+    for blob in blobs:
+        blob_urls.append(
+            f"https://{blob_service_client.account_name}.blob.core.windows.net/{blob_container_name}/{blob.name}")
+    return blob_urls
 
 
 def delete_blob(blob_url):
